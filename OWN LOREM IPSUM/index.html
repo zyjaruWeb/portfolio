@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css"> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOREM IPSUM ALT GENERATOR</title>
+</head>
+<!--
+    header with title
+    input box with button to generate text
+    display generated paragraphs
+-->
+<body class="body">
+        <header>
+            <p id="title">LOREM IPSUM ALT GENERATOR</p>
+        </header>
+        <div class="displaySectionId"><!-- section of number of paragraphs including generate button-->
+            <div id="parId">Paragraphs: </div> 
+            <div id="divInput"> <input id="input" placeholder="1" maxlength="10" value="1"> </div>
+            <div id="btnDiv"> <button id="clickBtnId" onclick="btnClick('input')">GENERATE</button> </div> 
+        </div>
+        <div class="displayParagraphs">
+            <p id="pargraphDisp"></p>
+        </div>
+    <script src="app.js"></script>
+</body>
+</html>

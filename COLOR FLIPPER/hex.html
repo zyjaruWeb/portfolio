@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head id="head">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flipper || Hex</title>
+<link rel="stylesheet" href="disp.css"></link>
+</head>
+<body>
+    <div class="topDiv">
+        <!-- DISPLAY NAME OF PAGE-->
+        <div class="divTitle">
+            <h4>Color Flipper</h4>
+        </div>
+        <!-- DISPLAY LINKS TO EITHER SIMPLE OR HEX COLOUR TYPE-->
+        <div class="divBrake">
+            <!--brake between headers--> 
+        </div>
+        <div class="divSimple">
+            <ul>
+                <a href="simple.html">Simple</a>
+            </ul>
+        </div>
+        <div class="divHex">
+            <ul>
+                <a href="hex.html">Hex</a>
+            </ul>
+        </div>
+    </div>
+    <div id="hexTheme" class="hexThemeClass"> <!-- WHOLE SECTION DISPLAYS ACTIVE COLOR-->
+        <div class="backgroundDescrHexClass">
+            <h4 id="backgroundDescrHex" >Background : </h4> <!-- IN H4 SHOW WHICH COLOUR IS CURRENTLY DISPLAYED-->
+        </div>
+        <div class="btnClickMeHexClass">
+            <Button id="btnClickMeHex"  onclick="clickBtnFunctionHex()">Click Me</Button> <!--RUNS RANDOM COLOUR FUNCTION-->
+        </div>
+    </div>
+    <script src="hex.js"></script>
+</body>
+</html>
