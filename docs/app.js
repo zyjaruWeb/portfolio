@@ -23,7 +23,7 @@ function objectDisplayFunction (projectItems) {
                     <h4>${x.title}</h4>
                 </header>
                 <div id="underlineMenu"></div>
-                <p class="itemTextClass">${x.description}</p>
+                <p class="itemTextClass">${x.description} You can check out code for used this project <a href="${x.githubLink}" target="_blank" class="gitLink">HERE</a></p>
             </div>
         </article>
         ` //return ends execution and gives back a html with specified object specififcs
@@ -60,7 +60,7 @@ function displayButtonsFunction() {
         }, 
         ["All"]
     )
-    console.log(reduceObjects)
+    // console.log(reduceObjects)
 
     //insert html code with variables from reduced objects array as per above
     const btndisplay = reduceObjects.map(function (category)/*use variable from reduce reduceObjects.map*/ {            
