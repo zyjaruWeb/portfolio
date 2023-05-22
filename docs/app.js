@@ -1,4 +1,4 @@
-import { projects } from "../docs/projectIndex.js"
+import { projects } from "./docs/projectIndex.js"
 
 
 const buttonsDisplaySel = document.querySelector(".buttonsClass")
