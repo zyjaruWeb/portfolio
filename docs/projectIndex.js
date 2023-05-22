@@ -2,8 +2,8 @@
 
 const projects = []
 
-import {ownLoremIpsum} from "./portfolio/OWN LOREM IPSUM/projectInfo.js"
-import {colorFlipper} from "./portfolio/COLOR FLIPPER/projectInfo.js"
+import {ownLoremIpsum} from "./OWN LOREM IPSUM/projectInfo.js"
+import {colorFlipper} from "./COLOR FLIPPER/projectInfo.js"
 
 // const {ownLoremIpsum} = ("../OWN LOREM IPSUM/projectInfo")
 // const {colorFlipper} = ("../COLOR FLIPPER/projectInfo")
