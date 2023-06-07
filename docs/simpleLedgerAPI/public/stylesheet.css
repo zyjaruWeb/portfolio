@@ -1,0 +1,60 @@
+.formContainer {
+    display: inline-grid;
+    grid-template-columns: 1fr 2fr;
+    text-align: right;
+    column-gap: 5px;
+}
+
+.submitBtn {
+    margin-top: 10PX;
+    margin-bottom: 50px;
+}
+
+
+.table, th {
+    margin-top: 200px;
+    border: 1px solid;
+    width: 60%;
+    border-collapse: collapse;
+    margin: 5px;
+    text-align: left;
+    table-layout: auto;
+
+}
+
+th {
+    padding: 5px;
+}
+
+.errorMsg {
+    margin-top: -50px;
+}
+
+h6 {
+    margin-top: -20px;
+}
+
+.table {
+    margin-top: 50px;
+}
+
+.totalClass {
+    font-size: 14pt;
+}
+
+.amountClass {
+    font-size: 14pt;
+}
+
+.xButton {
+    border: 0px solid;
+}
+
+.table, .xButton {
+    border: 0px solid;
+}
+
+.table th.thTotal {
+    border: none;
+}
+
