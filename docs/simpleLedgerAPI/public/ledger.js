@@ -103,7 +103,7 @@ showEntries()
 
 
 
-// add new entry
+// add a new entry
 
 submitBtn.addEventListener("click", async (e) => {
     e.preventDefault()
@@ -150,5 +150,5 @@ tableInfoContainer.addEventListener('click', async (e) => {
 
 
 
-// total grab amounts from MongoDB and push them to local array, would be more efficient if this process would be run on the mongoDB and request and response in here
+// total grab amounts from MongoDB and push them to local array, would be more efficient if this process would be run on the mongoDB and request and response in here ---- see mongoDBQueries folder
 

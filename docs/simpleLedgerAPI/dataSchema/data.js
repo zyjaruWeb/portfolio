@@ -1,4 +1,4 @@
-// specifies technicalities of processed data
+// specifies technicalities/limits/types of handled data
 
 const mongoose = require("mongoose")
 

@@ -15,10 +15,14 @@
 
 
 
-//post task
+//acquire data schema
 
 const Data = require("../dataSchema/data.js")
 
+//use async as promise based, error handling
+
+
+//get all entries
 
 const getAllEntries = async (req,res) =>{
     try {
@@ -28,6 +32,9 @@ const getAllEntries = async (req,res) =>{
         res.status(500).json({msg:error})
     }
 }
+
+
+//create entry
 
 const createEntry = async (req, res) => {
     try {
@@ -46,6 +53,8 @@ const createEntry = async (req, res) => {
     
 // }
 
+//delete entry 
+
 const deleteEntry = async (req, res) => {
     try {
         const {id: entryID}=req.params
@@ -59,6 +68,8 @@ const deleteEntry = async (req, res) => {
     }
 }
 
+
+//delete all entries
 const deleteAllEntries = async (req, res) => {
     try {
         const entries = await Data.deleteMany({})
