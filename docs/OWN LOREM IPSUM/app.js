@@ -29,14 +29,14 @@ function shuffle(text) {
     let currentIndex = text.length,  randomIndex; 
     // same as let randomIndex;
   
-    // !!!!!!TRY TO UNDERSTAND While there remain elements to shuffle.
+    //  While there remain elements to shuffle.
     while (currentIndex != 0) {
   
-      // !!!!!!TRY TO UNDERSTAND Pick a remaining element.
+      // Pick a remaining element.
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
         
-      // !!!!!!TRY TO UNDERSTAND And swap it with the current element.
+      //  swap it with the current element.
       [text[currentIndex], text[randomIndex]] = [
         text[randomIndex], text[currentIndex]];
     }
