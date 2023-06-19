@@ -2,6 +2,7 @@
 
 const express = require("express")
 const app = express()
+// const firebase = require('firebase')
 const routes = require("./routes/router")
 const connectDB = require("./dbConnect/connect")
 require("dotenv").config()
@@ -16,7 +17,8 @@ app.use(express.json()) //parse incoming requests and return object
 app.use("/api/v1/entries", routes)
 
 
-const port = 3000  //hardcode server 
+const port = "3000"  //hardcode server for localhost 3000
+const PORT = process.env.PORT || 3030 // server for deployement
 
 
 //create server on localhost:3000

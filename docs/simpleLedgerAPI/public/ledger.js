@@ -7,27 +7,17 @@ const inputAmount = document.querySelector(".amountInput")
 const formContainer = document.querySelector(".formContainer")
 const buttonContainer = document.querySelector(".buttonsContainer")
 const submitBtn = document.querySelector(".submitBtn")
+const resetBtn = document.querySelector(".resetBtn")
 const tableInfoContainer = document.querySelector(".table")
 const errorMsg = document.querySelector(".errorMsg")
 const totalContainer = document.querySelector(".totalContainer")
 const deleteButton = document.querySelector(".xButton")
-const totalAmount = 500
+const totalAmountContainer = document.querySelector(".totalAmountContainer")
 
-
-//sort function
-
-function sortByDate() {
-    collection.find().sort({datefield: 1}).toArray(function(err, docs) {});
-}
+// const totalAmount = 500
 
 
 
-
-
-
-
-
-console.log()
 
 //display all entries from database
 
@@ -37,6 +27,7 @@ const showEntries = async () => {
         const {
             data: { entries },
         } = await axios.get("/api/v1/entries")
+        
         if (entries.length < 1) {
             errorMsg.innerHTML = '<h3>Server: You need to enter information</h3>'
             tableInfoContainer.style.visibility = 'hidden'
@@ -49,14 +40,10 @@ const showEntries = async () => {
                     date,
                     from,
                     description,
-                    amount
+                    amount,
                 } = entry
-
-
-
+                
                 return `
-
-
 
                 <tr class="tableInfo" id="tableRes">
                     <th class="idNo">${entryID}</th>
@@ -74,23 +61,12 @@ const showEntries = async () => {
         tableInfoContainer.innerHTML = `
             <tr class="tableHead">
             <th>ID</th>
-            <th>Date</th>
+            <th>Date (mm/dd/yyyy)</th>
             <th>From/To</th>
             <th>Description</th>
             <th>Amount (£)</th>
             
-            </tr>` + allEntries + `
-
-       
-            <tr class="totalContainer">
-                <th class="thTotal"></th>
-                <th class="thTotal"></th>
-                <th class="thTotal"></th>
-                <th class="totalClass">Total:</th>
-                <th class="amountClass">£ ${totalAmount}</th>
-
-            </tr>
-             `
+            </tr>` + allEntries
 
     } catch (error) {
         errorMsg.innerHTML = '<h3>Server: You need to enter information</h3>'
@@ -99,22 +75,72 @@ const showEntries = async () => {
 
 }
 
-showEntries()
 
+
+
+//show total function, request from server and push into HTML
+
+const showTotal = async () => {
+    totalAmountContainer.style.visibility = "visible"
+    try {
+        const {
+            data: { amounts },
+        } = await axios.get("/api/v1/entries")
+        
+        if (amounts.length < 1) {
+            errorMsg.innerHTML = '<h3>Server: You need to enter information</h3>'
+            totalAmountContainer.style.visibility = 'hidden'
+            return
+        }
+        const sum = amounts
+            .map((entry) => {
+                const {
+                    total,
+                } = entry
+
+            
+                return `
+    
+               
+                <th class="amountClass">${total}</th>
+                </tr>
+
+                
+                `
+            })
+            .join('')
+            totalAmountContainer.innerHTML =  ` 
+                
+                <tr class="totalContainer">
+                    
+                    <th class="totalAmountDescr" >Total: £</th>
+                
+                 ` + sum
+            
+    } catch (error) {
+        errorMsg.innerHTML = '<h3>Server: You need to enter information</h3>'
+    }
+    totalAmountContainer.style.visibility = 'visible'
+
+}
+showEntries()
+showTotal()
 
 
 // add a new entry
 
 submitBtn.addEventListener("click", async (e) => {
     e.preventDefault()
+    const date1 = inputDate.value
     const date = inputDate.value
     const from = inputFrom.value
     const description = inputDescr.value
     const amount = inputAmount.value
 
     try {
-        await axios.post('/api/v1/entries', { date, from, description, amount })
+        await axios.post('/api/v1/entries', { date1, date, from, description, amount })
         showEntries()
+        showTotal()
         // showEntries()    implement to displayy all entries with freshly added
         inputDate.value = ''
         inputFrom.value = ''
@@ -141,6 +167,7 @@ tableInfoContainer.addEventListener('click', async (e) => {
         try {
             await axios.delete(`/api/v1/entries/${id}`)
             showEntries()
+            showTotal()
         } catch (error) {
             console.log(error);
         }
@@ -148,6 +175,25 @@ tableInfoContainer.addEventListener('click', async (e) => {
     }
 })
 
+//reset entire database
+
+resetBtn.addEventListener("click", async (e) => {
+    e.preventDefault()
+    try {
+        await axios.delete('/api/v1/entries')
+        showEntries()
+        showTotal()
+        // showEntries()    implement to displayy all entries with freshly added
+        inputDate.value = ''
+        inputFrom.value = ''
+        inputDescr.value = ''
+        inputAmount.value = ''
+
+
+    } catch (error) {
+        console.log("error")
+    }
+})
 
 
 // total grab amounts from MongoDB and push them to local array, would be more efficient if this process would be run on the mongoDB and request and response in here ---- see mongoDBQueries folder

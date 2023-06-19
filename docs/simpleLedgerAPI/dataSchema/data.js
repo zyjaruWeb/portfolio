@@ -4,6 +4,11 @@ const mongoose = require("mongoose")
 
 
 const EntrySchema = new mongoose.Schema({
+    date1:{type: Date ,
+    required: [true,"must provide date dd/mm/yyyy"],
+    
+    },
+    
     date: {
         type:String,
         required: [true,"must provide date dd/mm/yyyy"], 
@@ -23,9 +28,10 @@ const EntrySchema = new mongoose.Schema({
         type:Number,
         min: 0,
         required: [true,"must provide amount, a '-' means deduct form you balance (paid), '+' means you received "],
-        maxLength: 20,
+        maxLsength: 20,
     }
 })
 
+// db.EntrySchema.find().sort({ date : 1})
 
 module.exports = mongoose.model("Data", EntrySchema)

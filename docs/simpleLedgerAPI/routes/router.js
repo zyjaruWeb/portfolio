@@ -8,7 +8,7 @@ const {
     getAllEntries,
     createEntry,
     deleteEntry,
-    deleteAllEntries,
+    deleteAllEntries
 } = require("../REST/paths")
 
 router.route("/").get(getAllEntries).post(createEntry).delete(deleteAllEntries) //all type routes

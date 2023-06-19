@@ -22,12 +22,29 @@ const Data = require("../dataSchema/data.js")
 //use async as promise based, error handling
 
 
+//get sum of amount from entries
+
+
+
 //get all entries
 
 const getAllEntries = async (req,res) =>{
-    try {
-        const entries = await Data.find({})
-        res.status(200).json({entries})
+    try { //below sort by date old to new
+        const entries = await Data.find({}).sort({ date1 : 1})
+        //add query to sum amounts
+        const amounts = await Data.aggregate(    [
+            {
+              $group: {
+                _id: "$company",
+                total: {
+                  $sum: "$amount"
+                }
+              }
+            }
+          ],)
+
+        res.status(200).json({entries,amounts})
+        
     } catch (error) {
         res.status(500).json({msg:error})
     }
@@ -85,5 +102,5 @@ module.exports = {
     createEntry,
     getAllEntries,
     deleteEntry,
-    deleteAllEntries,
+    deleteAllEntries
 }
