@@ -23,7 +23,7 @@ function objectDisplayFunction (projectItems) {
                     <h4>${x.title}</h4>
                 </header>
                 <div id="underlineMenu"></div>
-                <p class="itemTextClass">${x.description} <a href="${x.githubLink}" target="_blank" class="gitLink">Click here to see the code on Github.</a></p>
+                <p class="itemTextClass">${x.description} <a href="${x.githubLink}" target="_blank" class="gitLink">Click here to see the code on GitHub.</a></p>
             </div>
         </article>
         ` //return ends execution and gives back a html with specified object specififcs
