@@ -195,3 +195,33 @@
     font-size: 30px;
     margin-top: 0px;
 }
+
+#aboutMeButtonId {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    min-width: auto;
+    font-size: 20px;
+    background-color: rgb(212, 144, 17);
+    color: #ffffff;
+    border-color: rgb(107, 107, 107);
+    border-width: 0px;
+    border-radius: 5px;
+    margin-bottom: 0px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 15vw;
+}
+
+#aboutMeButtonId:hover {
+    background-color:rgb(255, 175, 26);
+}
+
+
+@media only screen and (max-width: 700px) {
+    #aboutMeButtonId {
+        min-width: auto;
+    }
+}
+
+
+
+
