@@ -196,6 +196,12 @@
     margin-top: 0px;
 }
 
+.aLink {
+    text-decoration: none;
+    color: white;
+}
+
+
 #aboutMeButtonId {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     min-width: auto;
@@ -209,6 +215,7 @@
     padding: 10px;
     margin-top: 10px;
     margin-left: 15vw;
+    text-decoration: none;
 }
 
 #aboutMeButtonId:hover {

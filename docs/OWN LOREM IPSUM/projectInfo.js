@@ -1,5 +1,5 @@
 const ownLoremIpsum = {
-        id: 3,
+        id: 1,
         title: "Alt Lorem Ipsum",
         category: "FrontEnd",
         img: "./images/thumbnailLoremIpsum.PNG",
