@@ -5,8 +5,24 @@ const Data = require("../dataSchema/data.js")
 const asyncWrppr = require("../middleware/asyncWrppr")
 
 
-//get sum of amount from entries
+//get data for CSV download
 
+const getCsv = asyncWrppr(async (req,res) =>{
+    //below sort by date old to new
+            const entries = await Data.find({}).sort({ date1 : 1})
+            //add query to sum amounts
+            const amounts = await Data.aggregate(    [
+                {
+                  $group: {
+                    _id: "$company",
+                    total: {
+                      $sum: {$round: ["$amount", 2]}
+                    }
+                  }
+                }
+              ],)
+            res.status(200).json({entries,amounts})
+    })
 
 
 //get all entries
@@ -76,5 +92,6 @@ module.exports = {
     createEntry,
     getAllEntries,
     deleteEntry,
-    deleteAllEntries
+    deleteAllEntries,
+    getCsv
 }
