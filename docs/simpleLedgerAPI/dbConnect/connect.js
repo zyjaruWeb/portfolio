@@ -2,6 +2,7 @@
 
 const mongoose = require("mongoose")
 
+//make connectDB variable connect to the url using mongoose
 
 const connectDB = (url)=>{
     return mongoose.connect(url,{

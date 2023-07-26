@@ -1,3 +1,6 @@
+// creates a try - catch "shortcut" for use in REST instead of repeating it every time
+
+
 const asyncWrppr = (request) =>{
     return async (req,res,next) =>{
         try {

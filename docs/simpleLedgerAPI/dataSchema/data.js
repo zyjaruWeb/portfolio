@@ -2,6 +2,7 @@
 
 const mongoose = require("mongoose")
 
+// specify data fields, their limits and specifications
 
 const EntrySchema = new mongoose.Schema({
     date1:{type: Date ,
